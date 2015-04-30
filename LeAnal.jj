@@ -66,6 +66,7 @@ TOKEN:
 	|<INT: "int">{System.out.println("INT -> "+image);}
 	|<FLOAT: "float">{System.out.println("FLOAT -> "+image);}
 	|<CHAR: "char">{System.out.println("CHAR -> "+image);}
+	|<VOID: "void">{System.out.println("VOID -> "+image);}
 	
 }
 
