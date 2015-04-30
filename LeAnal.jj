@@ -23,14 +23,27 @@ TOKEN:
 	<NUMBER:["0"-"9"]>{System.out.println("NUMBER ->"+image);}
 	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
 	|<LPAREN: ")">{System.out.prinln("LPAREN -> " + image);}
-    	|<RPAREN: "(">{System.out.prinln("RPAREN -> " + image);}
+    |<RPAREN: "(">{System.out.prinln("RPAREN -> " + image);}
 	|<LBRACE: "{">{System.out.prinln("LBRACE -> " + image);}
 	|<RBRACE: "}">{System.out.prinln("RBRACE -> " + image);}
 	|<LBRACKET: "]">{System.out.prinln("LBRACKET -> " + image);}
 	|<RBRACKET: "[">{System.out.prinln("RBRACKET-> " + image);}
-	|<PTOVIRG: ";">{System.out.prinln("PTOVIRG -> " + image);}
-	|<OPER: ["*","/","%","&&","||","-","+"]>{System.out.prinln("OPER -> " + image);}
-	|<COMP: ["==","!=","<","<=",">",">="]>{System.out.prinln("COMP -> " + image);}
+	|<SEMICOLON: ";">{System.out.prinln("SEMICOLON -> " + image);}
+	|<EQUAL: "="> {System.out.pritln("EQUAL ->"+image);}
+	|<MULT: "*"> {System.out.pritln("MULT ->"+image);}
+    |<MOD: "%"> {System.out.pritln("MOD ->"+image);}
+	|<DIV: "/"> {System.out.pritln("DIV ->"+image);}
+	|<PLUS: "+"> {System.out.pritln("PLUS ->"+image);}
+	|<MINUS: "-"> {System.out.pritln("MNIUS ->"+image);}
+	|<OR: "||"> {System.out.pritln("OR ->"+image);}
+	|<AND: "&&"> {System.out.pritln("AND ->"+image);}
+	|<DEQUAL: "=="> {System.out.pritln("DEQUAL ->"+image);}
+	|<DIF: "!="> {System.out.pritln("DIF ->"+image);}
+	|<LESS: "<"> {System.out.pritln("LESS ->"+image);}
+	|<GREATER: ">"> {System.out.pritln("GREATER ->"+image);}
+	|<LEQ: "<="> {System.out.pritln("LEQ ->"+image);}
+	|<GEQ: ">="> {System.out.pritln("GEQ ->"+image);}
+	
 }
 
 void Program():{}
