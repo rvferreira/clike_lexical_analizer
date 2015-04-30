@@ -31,23 +31,14 @@ TOKEN:
 {
 	<NUMBER:["0"-"9"]>{System.out.println("NUMBER -> "+image);}
 	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
-<<<<<<< HEAD
-	|<LPAREN: ")">{System.out.println("LPAREN -> " + image);}
-    	|<RPAREN: "(">{System.out.println("RPAREN -> " + image);}
+	|<RPAREN: ")">{System.out.println("RPAREN -> " + image);}
+    	|<LPAREN: "(">{System.out.println("LPAREN -> " + image);}
 	|<LBRACE: "{">{System.out.println("LBRACE -> " + image);}
 	|<RBRACE: "}">{System.out.println("RBRACE -> " + image);}
-	|<LBRACKET: "]">{System.out.println("LBRACKET -> " + image);}
-	|<RBRACKET: "[">{System.out.println("RBRACKET-> " + image);}
-	|<COMMA: "[">{System.out.println("COMMA-> " + image);}
-=======
-	|<RPAREN: ")">{System.out.println("LPAREN -> " + image);}
-    	|<LPAREN: "(">{System.out.println("RPAREN -> " + image);}
-	|<RBRACE: "{">{System.out.println("LBRACE -> " + image);}
-	|<LBRACE: "}">{System.out.println("RBRACE -> " + image);}
-	|<RBRACKET: "]">{System.out.println("LBRACKET -> " + image);}
-	|<LBRACKET: "[">{System.out.println("RBRACKET-> " + image);}
->>>>>>> 0964212f8ab8eb91e33bc700d66f63216bcc8894
+	|<RBRACKET: "]">{System.out.println("RBRACKET -> " + image);}
+	|<LBRACKET: "[">{System.out.println("LBRACKET-> " + image);}
 	|<SEMICOLON: ";">{System.out.println("SEMICOLON -> " + image);}
+	|<COMMA: ",">{System.out.println("COMMA-> " + image);}
 	|<EQUAL: "="> {System.out.println("EQUAL -> "+image);}
 	|<MULT: "*"> {System.out.println("MULT -> "+image);}
     	|<MOD: "%"> {System.out.println("MOD -> "+image);}
@@ -151,32 +142,38 @@ void IdentList():{}
 //10
 void Type():{}
 {
-	(<CHAR>|<INT>|<FLOAT>|<VOID>)
+	(<CHAR>|<INT>|<FLOAT>)
 }
 
 //11
 void StatementSequence():{}
 {
 	(Statement())+
-
 }
 
 //12
 void Statement():{}
 {
-	Asssignment()|WhileStatement()|IfStatement()|ProcedureCall()
+	Assignment()
+	|WhileStatement()
+	|IfStatement()
+	|ProcedureCall()
 }
 
 //13
 void WhileStatement():{}
 {	
-	<WHILE><LPAREN>Logical_OR()<RPAREN><LBRACE>StatementSequence()<RBRACE>
+	<WHILE>
+	<LPAREN>Logical_OR()<RPAREN>
+	<LBRACE>StatementSequence()<RBRACE>
 }
 
 //14
 void IfStatement():{}
 {
-	<IF><LPAREN>Logical_OR()<RPAREN><LBRACE>StatementSequence()<RBRACE>(<ELSE><LBRACE>Statement()<RBRACE>)*
+	<IF><LPAREN>Logical_OR()<RPAREN>
+	<LBRACE>StatementSequence()<RBRACE>
+	[<ELSE><LBRACE>Statement()<RBRACE>]
 }
 
 //15
@@ -188,7 +185,7 @@ void ProcedureCall():{}
 //16
 void ExpList():{}
 {
-	Logical_OR(<COMMA>Logical_OR)+
+	Logical_OR()(<COMMA>Logical_OR())*
 }
 //17
 void Assignment():{}
@@ -199,55 +196,55 @@ void Assignment():{}
 //18
 void Logical_OR():{}
 {
-
+	<SEMICOLON>
 }
 
 //19
 void Logical_AND():{}
 {
-
+	<SEMICOLON>
 }
 
 //20
 void Expression():{}
 {
-
+	<SEMICOLON>
 }
 
 //21
 void EqualityExpr():{}
 {
-
+	<SEMICOLON>
 }
 
 //22
 void SimpleExpr():{}
 {
-
+	<SEMICOLON>
 }
 
 //23
 void Term():{}
 {
-
+	<SEMICOLON>
 }
 
 //24
 void Unary():{}
 {
-
+	<SEMICOLON>
 }
 
 //25
 void Factor():{}
 {
-
+	<SEMICOLON>
 }
 
 //26
 void Designator():{}
 {
-
+	<SEMICOLON>
 }
 
 
