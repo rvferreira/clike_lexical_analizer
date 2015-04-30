@@ -61,6 +61,12 @@ TOKEN:
 	
 }
 
+//TOKEN IDENTIFICADOR
+TOKEN:
+{
+	<IDENT:<LETTER>(<LETTER>|<NUMBER>)*>{System.out.println("IDENT -> "+image);}
+}
+
 /********************************************************
  * THE C-LIKE LANGUAGE GRAMMAR WITH TYPEDEF STARTS HERE *
  ********************************************************/
