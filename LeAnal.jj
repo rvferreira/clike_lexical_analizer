@@ -11,9 +11,7 @@ public class LeAnal {
 			System.out.println(e.getMessage());
 			System.out.println("Analizador encontrou erros na análise! \n\n");
 		}
-		
 	}
-
 }
 
 PARSER_END(LeAnal)
@@ -84,7 +82,7 @@ TOKEN:
 //1
 void Program():{}
 {
-//	[(VariableDeclaration()|TypeDefDeclaration())*]
+	[(VariableDeclaration()|TypeDefDeclaration())*]
 	(ProcedureDeclaration())+
 	<EOF>
 }
@@ -92,5 +90,5 @@ void Program():{}
 //2
 void ProcedureDeclaration():{}
 {
-	(<MULT>)
+	(<IDENT>)(<MULT>)+(<IDENT>)
 }
