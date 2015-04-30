@@ -18,31 +18,46 @@ public class LeAnal {
 
 PARSER_END(LeAnal)
 
+//TOKENS ESTÁTICOS
 TOKEN:
 {
-	<NUMBER:["0"-"9"]>{System.out.println("NUMBER ->"+image);}
+	<NUMBER:["0"-"9"]>{System.out.println("NUMBER -> "+image);}
 	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
-	|<LPAREN: ")">{System.out.prinln("LPAREN -> " + image);}
-    	|<RPAREN: "(">{System.out.prinln("RPAREN -> " + image);}
-	|<LBRACE: "{">{System.out.prinln("LBRACE -> " + image);}
-	|<RBRACE: "}">{System.out.prinln("RBRACE -> " + image);}
-	|<LBRACKET: "]">{System.out.prinln("LBRACKET -> " + image);}
-	|<RBRACKET: "[">{System.out.prinln("RBRACKET-> " + image);}
-	|<SEMICOLON: ";">{System.out.prinln("SEMICOLON -> " + image);}
-	|<EQUAL: "="> {System.out.pritln("EQUAL ->"+image);}
-	|<MULT: "*"> {System.out.pritln("MULT ->"+image);}
-    	|<MOD: "%"> {System.out.pritln("MOD ->"+image);}
-	|<DIV: "/"> {System.out.pritln("DIV ->"+image);}
-	|<PLUS: "+"> {System.out.pritln("PLUS ->"+image);}
-	|<MINUS: "-"> {System.out.pritln("MNIUS ->"+image);}
-	|<OR: "||"> {System.out.pritln("OR ->"+image);}
-	|<AND: "&&"> {System.out.pritln("AND ->"+image);}
-	|<DEQUAL: "=="> {System.out.pritln("DEQUAL ->"+image);}
-	|<DIF: "!="> {System.out.pritln("DIF ->"+image);}
-	|<LESS: "<"> {System.out.pritln("LESS ->"+image);}
-	|<GREATER: ">"> {System.out.pritln("GREATER ->"+image);}
-	|<LEQ: "<="> {System.out.pritln("LEQ ->"+image);}
-	|<GEQ: ">="> {System.out.pritln("GEQ ->"+image);}
+	|<LPAREN: ")">{System.out.println("LPAREN -> " + image);}
+    	|<RPAREN: "(">{System.out.println("RPAREN -> " + image);}
+	|<LBRACE: "{">{System.out.println("LBRACE -> " + image);}
+	|<RBRACE: "}">{System.out.println("RBRACE -> " + image);}
+	|<LBRACKET: "]">{System.out.println("LBRACKET -> " + image);}
+	|<RBRACKET: "[">{System.out.println("RBRACKET-> " + image);}
+	|<SEMICOLON: ";">{System.out.println("SEMICOLON -> " + image);}
+	|<EQUAL: "="> {System.out.println("EQUAL -> "+image);}
+	|<MULT: "*"> {System.out.println("MULT -> "+image);}
+    	|<MOD: "%"> {System.out.println("MOD -> "+image);}
+	|<DIV: "/"> {System.out.println("DIV -> "+image);}
+	|<PLUS: "+"> {System.out.println("PLUS -> "+image);}
+	|<MINUS: "-"> {System.out.println("MNIUS -> "+image);}
+	|<OR: "||"> {System.out.println("OR ->"+image);}
+	|<AND: "&&"> {System.out.println("AND -> "+image);}
+	|<DEQUAL: "=="> {System.out.println("DEQUAL -> "+image);}
+	|<DIF: "!="> {System.out.println("DIF -> "+image);}
+	|<LESS: "<"> {System.out.println("LESS -> "+image);}
+	|<GREATER: ">"> {System.out.println("GREATER -> "+image);}
+	|<LEQ: "<="> {System.out.println("LEQ -> "+image);}
+	|<GEQ: ">="> {System.out.println("GEQ -> "+image);}
+	
+}
+
+//PALAVRAS RESERVADAS
+TOKEN:
+{
+	<IF: "if">{System.out.println("IF -> "+image);}
+	|<ELSE: "else">{System.out.println("ELSE -> "+image);}
+	|<WHILE: "while">{System.out.println("WHILE -> "+image);}
+	|<MAIN: "main">{System.out.println("MAIN -> "+image);}
+	|<TYPEDEF: "typedef">{System.out.println("TYPEDEF -> "+image);}
+	|<INT: "int">{System.out.println("INT -> "+image);}
+	|<FLOAT: "float">{System.out.println("FLOAT -> "+image);}
+	|<CHAR: "char">{System.out.println("CHAR -> "+image);}
 	
 }
 
