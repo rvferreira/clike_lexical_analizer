@@ -18,6 +18,16 @@ public class LeAnal {
 
 PARSER_END(LeAnal)
 
+//ESPACOS VAZIOS
+SKIP :
+{
+	  " "
+	| "\t"
+	| "\n"
+	| "\r"
+	| "\f"
+}
+
 //TOKENS ESTÁTICOS
 TOKEN:
 {
@@ -76,5 +86,5 @@ void Program():{}
 //2
 void ProcedureDeclaration():{}
 {
-	(<MULT>)+
+	(<MULT>)
 }
