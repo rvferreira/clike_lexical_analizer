@@ -5,7 +5,7 @@ public class LeAnal {
 	public static void main(String args []) throws ParseException{
 		try{
 			LeAnal parser = new LeAnal(System.in);
-			parser.program();
+			parser.Program();
 		}
 		catch(ParseException e){
 			System.out.println(e.getMessage());
@@ -23,14 +23,17 @@ TOKEN:
 	<NUMBER:["0"-"9"]>{System.out.println("NUMBER ->"+image);}
 	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
 	|<LPAREN: ")">{System.out.prinln("LPAREN -> " + image);}
-    |<RPAREN: "(">{System.out.prinln("RPAREN -> " + image);}
-	|<LCHAVES: "{">{System.out.prinln("LCHAVES -> " + image);}
-	|<RCHAVES: "}">{System.out.prinln("RCHAVES -> " + image);}
-	|<LCONCH: "]">{System.out.prinln("LCONCH -> " + image);}
-	|<RCONCH: "[">{System.out.prinln("RCONCH-> " + image);}
+    	|<RPAREN: "(">{System.out.prinln("RPAREN -> " + image);}
+	|<LBRACE: "{">{System.out.prinln("LBRACE -> " + image);}
+	|<RBRACE: "}">{System.out.prinln("RBRACE -> " + image);}
+	|<LBRACKET: "]">{System.out.prinln("LBRACKET -> " + image);}
+	|<RBRACKET: "[">{System.out.prinln("RBRACKET-> " + image);}
 	|<PTOVIRG: ";">{System.out.prinln("PTOVIRG -> " + image);}
 	|<OPER: ["*","/","%","&&","||","-","+"]>{System.out.prinln("OPER -> " + image);}
 	|<COMP: ["==","!=","<","<=",">",">="]>{System.out.prinln("COMP -> " + image);}
-	|
 }
 
+void Program():{}
+{
+	
+}
