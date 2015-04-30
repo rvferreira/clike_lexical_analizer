@@ -31,12 +31,12 @@ TOKEN:
 {
 	<NUMBER:["0"-"9"]>{System.out.println("NUMBER -> "+image);}
 	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
-	|<LPAREN: ")">{System.out.println("LPAREN -> " + image);}
-    	|<RPAREN: "(">{System.out.println("RPAREN -> " + image);}
-	|<LBRACE: "{">{System.out.println("LBRACE -> " + image);}
-	|<RBRACE: "}">{System.out.println("RBRACE -> " + image);}
-	|<LBRACKET: "]">{System.out.println("LBRACKET -> " + image);}
-	|<RBRACKET: "[">{System.out.println("RBRACKET-> " + image);}
+	|<RPAREN: ")">{System.out.println("LPAREN -> " + image);}
+    	|<LPAREN: "(">{System.out.println("RPAREN -> " + image);}
+	|<RBRACE: "{">{System.out.println("LBRACE -> " + image);}
+	|<LBRACE: "}">{System.out.println("RBRACE -> " + image);}
+	|<RBRACKET: "]">{System.out.println("LBRACKET -> " + image);}
+	|<LBRACKET: "[">{System.out.println("RBRACKET-> " + image);}
 	|<SEMICOLON: ";">{System.out.println("SEMICOLON -> " + image);}
 	|<EQUAL: "="> {System.out.println("EQUAL -> "+image);}
 	|<MULT: "*"> {System.out.println("MULT -> "+image);}
@@ -95,3 +95,101 @@ void ProcedureDeclaration():{}
 }
 
 //11
+void StatementSequence():{}
+{
+	(Statement())+
+
+}
+
+//12
+void Statement():{}
+{
+	Asssignment()|WhileStatement()|IfStatement()|ProcedureCall()
+}
+
+//13
+void WhileStatement():{}
+{	
+	<WHILE><LPAREN>Logical_OR()<RPAREN><LBRACE>StatementSequence()<RBRACE>
+}
+
+//14
+void IfStatement():{}
+{
+	<IF><LPAREN>Logical_OR()<RPAREN><LBRACE>StatementSequence()<RBRACE>(<ELSE><LBRACE>Statement()<RBRACE>)*
+}
+
+//15
+void ProcedureCall():{}
+{
+	<IDENT><LPAREN>(ExpList())*<RPAREN><SEMICOLON>
+}
+
+//16
+void ExpList():{}
+{
+	Logical_OR(<COMMA>Logical_OR)+
+}
+//17
+void Assignment():{}
+{
+	Designator()<EQUAL>Logical_OR()<SEMICOLON>
+}
+
+//18
+void Logical_OR():{}
+{
+
+}
+
+//19
+void Logical_AND():{}
+{
+
+}
+
+//20
+void Expression():{}
+{
+
+}
+
+//21
+void EqualityExpr():{}
+{
+
+}
+
+//22
+void SimpleExpr():{}
+{
+
+}
+
+//23
+void Term():{}
+{
+
+}
+
+//24
+void Unary():{}
+{
+
+}
+
+//25
+void Factor():{}
+{
+
+}
+
+//26
+void Designator():{}
+{
+
+}
+
+
+
+
