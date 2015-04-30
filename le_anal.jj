@@ -1,0 +1,21 @@
+PARSER_BEGIN(LeAnal)
+
+public class LeAnal {
+
+	public static void main(String args []) throws ParseException{
+		try{
+			LeAnal parser = new LeAnal(System.in);
+			parser.program();
+		}
+		catch(ParseException e){
+			System.out.println(e.getMessage());
+			System.out.println("Analizador encontrou erros na análise! \n\n");
+		}
+		
+	}
+
+}
+
+PARSER_END(LeAnal)
+
+
