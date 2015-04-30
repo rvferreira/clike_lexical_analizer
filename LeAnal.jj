@@ -37,6 +37,7 @@ TOKEN:
 	|<RBRACE: "}">{System.out.println("RBRACE -> " + image);}
 	|<LBRACKET: "]">{System.out.println("LBRACKET -> " + image);}
 	|<RBRACKET: "[">{System.out.println("RBRACKET-> " + image);}
+	|<COMMA: "[">{System.out.println("COMMA-> " + image);}
 	|<SEMICOLON: ";">{System.out.println("SEMICOLON -> " + image);}
 	|<EQUAL: "="> {System.out.println("EQUAL -> "+image);}
 	|<MULT: "*"> {System.out.println("MULT -> "+image);}
@@ -83,15 +84,65 @@ TOKEN:
 //1
 void Program():{}
 {
-	[(VariableDeclaration()|TypeDefDeclaration())*]
+	(VariableDeclaration()|TypeDefDeclaration())*
 	(ProcedureDeclaration())+
 	<EOF>
 }
 
 //2
 void ProcedureDeclaration():{}
+{	
+	<VOID>(ProcedureHeading())<LBRACE>(ProcedureBody())<RBRACE>
+}
+
+//3
+void ProcedureBody():{}
 {
-	(<IDENT>)(<MULT>)+(<IDENT>)
+	(VariableDeclaration()|TypeDefDeclaration())*
+	(StatementSequence())
+}
+
+//4
+void ProcedureHeading():{}
+{
+	<IDENT><LPAREN>[FormalParameters()]<RPAREN>
+}
+
+//5
+void FormalParameters():{}
+{
+	(FPSection())
+	(<COMMA>FPSection())*
+}
+
+//6
+void FPSection():{}
+{
+	(Type())<IDENT>
+}
+//7
+void TypeDefDeclaration():{}
+{
+	<TYPEDEF>(Type())<IDENT><SEMICOLON>
+}
+
+//8
+void VariableDeclaration():{}
+{
+	(Type())(IdentList())<SEMICOLON>
+}
+
+//9
+void IdentList():{}
+{
+	(<IDENT>)
+	(<COMMA><IDENT>)*
+}
+
+//10
+void Type():{}
+{
+	(<CHAR>|<INT>|<FLOAT>|<VOID>)
 }
 
 //11
