@@ -18,4 +18,19 @@ public class LeAnal {
 
 PARSER_END(LeAnal)
 
+TOKEN:
+{
+	<NUMBER:["0"-"9"]>{System.out.println("NUMBER ->"+image);}
+	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
+	|<LPAREN: ")">{System.out.prinln("LPAREN -> " + image);}
+    |<RPAREN: "(">{System.out.prinln("RPAREN -> " + image);}
+	|<LCHAVES: "{">{System.out.prinln("LCHAVES -> " + image);}
+	|<RCHAVES: "}">{System.out.prinln("RCHAVES -> " + image);}
+	|<LCONCH: "]">{System.out.prinln("LCONCH -> " + image);}
+	|<RCONCH: "[">{System.out.prinln("RCONCH-> " + image);}
+	|<PTOVIRG: ";">{System.out.prinln("PTOVIRG -> " + image);}
+	|<OPER: ["*","/","%","&&","||","-","+"]>{System.out.prinln("OPER -> " + image);}
+	|<COMP: ["==","!=","<","<=",">",">="]>{System.out.prinln("COMP -> " + image);}
+	|
+}
 
