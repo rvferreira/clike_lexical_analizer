@@ -23,13 +23,13 @@ TOKEN:
 {
 	<NUMBER:["0"-"9"]>{System.out.println("NUMBER -> "+image);}
 	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
-	|<LPAREN: ")">{System.out.prinln("LPAREN -> " + image);}
-    |<RPAREN: "(">{System.out.prinln("RPAREN -> " + image);}
-	|<LBRACE: "{">{System.out.prinln("LBRACE -> " + image);}
-	|<RBRACE: "}">{System.out.prinln("RBRACE -> " + image);}
-	|<LBRACKET: "]">{System.out.prinln("LBRACKET -> " + image);}
-	|<RBRACKET: "[">{System.out.prinln("RBRACKET-> " + image);}
-	|<SEMICOLON: ";">{System.out.prinln("SEMICOLON -> " + image);}
+	|<LPAREN: ")">{System.out.println("LPAREN -> " + image);}
+    |<RPAREN: "(">{System.out.println("RPAREN -> " + image);}
+	|<LBRACE: "{">{System.out.println("LBRACE -> " + image);}
+	|<RBRACE: "}">{System.out.println("RBRACE -> " + image);}
+	|<LBRACKET: "]">{System.out.println("LBRACKET -> " + image);}
+	|<RBRACKET: "[">{System.out.println("RBRACKET-> " + image);}
+	|<SEMICOLON: ";">{System.out.println("SEMICOLON -> " + image);}
 	|<EQUAL: "="> {System.out.pritln("EQUAL -> "+image);}
 	|<MULT: "*"> {System.out.pritln("MULT -> "+image);}
     |<MOD: "%"> {System.out.pritln("MOD -> "+image);}
