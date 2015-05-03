@@ -196,55 +196,61 @@ void Assignment():{}
 //18
 void Logical_OR():{}
 {
-	<SEMICOLON>
+	Logical_AND()(<OR>Logical_AND())*
 }
 
 //19
 void Logical_AND():{}
 {
-	<SEMICOLON>
+	Expression()(<AND>Expression()) 
 }
 
 //20
 void Expression():{}
 {
-	<SEMICOLON>
+	EqualityExpr()[(<DEQUAL>|<DIF>)EqualityExpr()]
 }
 
 //21
 void EqualityExpr():{}
 {
-	<SEMICOLON>
+	SimpleExpr()[(<LESS> | <LEQ> | <GREATER> | <GEQ>)SimpleExpr()]
 }
 
 //22
 void SimpleExpr():{}
 {
-	<SEMICOLON>
+	[<PLUS>|<MINUS>]Term()
+	ExtraTermSimpleExpr()
+}
+
+void ExtraTermSimpleExpr():{}
+{
+	((<PLUS>|<MINUS>)Term())* 
 }
 
 //23
 void Term():{}
 {
-	<SEMICOLON>
+	Unary()((<MULT>|<DIV>|<MOD>)Unary())*
 }
 
 //24
 void Unary():{}
 {
-	<SEMICOLON>
+	<SEMICOLON>Unary()|Factor()
 }
 
 //25
 void Factor():{}
 {
-	<SEMICOLON>
+	Designator()|<NUMBER>|<LPAREN>Logical_OR()<RPAREN> 
 }
 
 //26
 void Designator():{}
 {
-	<SEMICOLON>
+	<IDENT>
 }
 
 
