@@ -63,9 +63,6 @@ TOKEN:
 	|<ELSE: "else">{System.out.println("ELSE -> "+image);}
 	|<WHILE: "while">{System.out.println("WHILE -> "+image);}
 	|<TYPEDEF: "typedef">{System.out.println("TYPEDEF -> "+image);}
-	|<INT: "int">{System.out.println("INT -> "+image);}
-	|<FLOAT: "float">{System.out.println("FLOAT -> "+image);}
-	|<CHAR: "char">{System.out.println("CHAR -> "+image);}
 	|<VOID: "void">{System.out.println("VOID -> "+image);}
 	
 }
@@ -98,8 +95,7 @@ void ProcedureDeclaration():{}
 //3
 void ProcedureBody():{}
 {
-	(VariableDeclaration()|TypeDefDeclaration())*
-	(StatementSequence())
+	(TypeDefDeclaration()|LOOKAHEAD(4)VariableDeclaration()|StatementSequence())*
 }
 
 //4
@@ -135,36 +131,30 @@ void VariableDeclaration():{}
 //9
 void IdentList():{}
 {
-	(<IDENT>)
-	(<COMMA><IDENT>)*
+	LOOKAHEAD(4)<IDENT>
+	|(<IDENT>)(<COMMA><IDENT>)*
 }
 
 //10
 void Type():{}
 {
-	(<CHAR>|<INT>|<FLOAT>)
+	(<IDENT>)
 }
 
 //11
 void StatementSequence():{}
 {
-	(Statement())+
+	(LOOKAHEAD(2)Statement())+
 }
 
-//12.1
+//12
 void Statement():{}
 {
-	Statement2()
+	LOOKAHEAD(4)Assignment()
+	|ProcedureCall()
 	|WhileStatement()
 	|IfStatement()
 
-}
-
-//12.2 Mutual Prefix Warning Solving
-void Statement2():{}
-{
-	<IDENT>
-	(Assignment()|ProcedureCall())
 }
 
 //13
@@ -186,7 +176,7 @@ void IfStatement():{}
 //15
 void ProcedureCall():{}
 {
-	<LPAREN>(ExpList())*<RPAREN><SEMICOLON>
+	Designator()<LPAREN>(ExpList())*<RPAREN><SEMICOLON>
 }
 
 //16
@@ -197,7 +187,7 @@ void ExpList():{}
 //17
 void Assignment():{}
 {
-	<EQUAL>Logical_OR()<SEMICOLON>
+	<IDENT><EQUAL>Logical_OR()<SEMICOLON>
 }
 
 //18
@@ -221,14 +211,14 @@ void Expression():{}
 //21
 void EqualityExpr():{}
 {
-	SimpleExpr()[(<LESS> | <LEQ> | <GREATER> | <GEQ>)SimpleExpr()]
+	SimpleExpr()[LOOKAHEAD(2)(<LESS> | <LEQ> | <GREATER> | <GEQ>)SimpleExpr()]
 }
 
 //22
 void SimpleExpr():{}
 {
 	[<PLUS>|<MINUS>]Term()
-	((<PLUS>|<MINUS>)Term())*
+	(LOOKAHEAD(4)(<PLUS>|<MINUS>)Term())*
 }
 
 //23
