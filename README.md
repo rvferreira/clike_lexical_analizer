@@ -32,7 +32,11 @@ Arquivo que compila com sucesso e exemplifica o reconhecimento da maioria dos to
 Falha na declaracao de variaveis. Atribuicao junto com declaracao.
 
 ### teste3.txt
+Declaração de typedef inválida com três argumentos.
+
 ### teste4.txt
+Falta de ponto e vírgula.
+
 ### teste5.txt
 ### teste6.txt
 ### teste7.txt
