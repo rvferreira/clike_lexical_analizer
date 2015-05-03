@@ -110,11 +110,11 @@ public class ParseException extends Exception {
         break;
       }
       retval += tokenImage[tok.kind];
-      /*
+      
       retval += " \"";
       retval += add_escapes(tok.image);
       retval += " \"";
-      */
+      
       tok = tok.next;
     }
     retval += " na linha " + currentToken.next.beginLine + ", coluna " + currentToken.next.beginColumn;

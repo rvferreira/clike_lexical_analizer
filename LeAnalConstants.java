@@ -65,17 +65,11 @@ public interface LeAnalConstants {
   /** RegularExpression Id. */
   int TYPEDEF = 33;
   /** RegularExpression Id. */
-  int INT = 34;
+  int VOID = 34;
   /** RegularExpression Id. */
-  int FLOAT = 35;
+  int IDENT = 35;
   /** RegularExpression Id. */
-  int CHAR = 36;
-  /** RegularExpression Id. */
-  int VOID = 37;
-  /** RegularExpression Id. */
-  int IDENT = 38;
-  /** RegularExpression Id. */
-  int LETTER = 39;
+  int LETTER = 36;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -116,9 +110,6 @@ public interface LeAnalConstants {
     "\"else\"",
     "\"while\"",
     "\"typedef\"",
-    "\"int\"",
-    "\"float\"",
-    "\"char\"",
     "\"void\"",
     "<IDENT>",
     "<LETTER>",
