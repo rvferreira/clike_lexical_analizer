@@ -1,0 +1,16 @@
+void main()
+{
+	int a;
+	int b;
+	a = 4;
+	b = 2;
+	
+	if (a == b)
+	{
+		c = a*b;
+	}
+	else
+	{
+		c = a/b;
+	
+}

@@ -1,0 +1,18 @@
+void main()
+{
+	typedef int num a;
+	num b;
+	num c;
+	a = 1;
+	b = 2;
+
+	if(a > b)
+	{
+		c = a - b;
+	}
+	else
+	{
+		c = b - a;
+	}
+	
+}
