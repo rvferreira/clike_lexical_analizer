@@ -1,8 +1,8 @@
-# LeAnal - clike_lexical_analizer
+# LeAnal - C-Like Lexical Analizer
 
 ## Funcionalidade
 
-Este é um analizador lexico para a Linguagem 
+Este é um analizador lexico para a Linguagem C-like
 
 ## Autoria
 
