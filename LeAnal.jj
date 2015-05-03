@@ -30,7 +30,6 @@ SKIP :
 TOKEN:
 {
 	<NUMBER:["0"-"9"]>{System.out.println("NUMBER -> "+image);}
-	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
 	|<RPAREN: ")">{System.out.println("RPAREN -> " + image);}
     	|<LPAREN: "(">{System.out.println("LPAREN -> " + image);}
 	|<LBRACE: "{">{System.out.println("LBRACE -> " + image);}
@@ -44,7 +43,8 @@ TOKEN:
     	|<MOD: "%"> {System.out.println("MOD -> "+image);}
 	|<DIV: "/"> {System.out.println("DIV -> "+image);}
 	|<PLUS: "+"> {System.out.println("PLUS -> "+image);}
-	|<MINUS: "-"> {System.out.println("MNIUS -> "+image);}
+	|<MINUS: "-"> {System.out.println("MINUS -> "+image);}
+	|<NOT: "!"> {System.out.println("NOT -> "+image);}
 	|<OR: "||"> {System.out.println("OR ->"+image);}
 	|<AND: "&&"> {System.out.println("AND -> "+image);}
 	|<DEQUAL: "=="> {System.out.println("DEQUAL -> "+image);}
@@ -62,7 +62,6 @@ TOKEN:
 	<IF: "if">{System.out.println("IF -> "+image);}
 	|<ELSE: "else">{System.out.println("ELSE -> "+image);}
 	|<WHILE: "while">{System.out.println("WHILE -> "+image);}
-	|<MAIN: "main">{System.out.println("MAIN -> "+image);}
 	|<TYPEDEF: "typedef">{System.out.println("TYPEDEF -> "+image);}
 	|<INT: "int">{System.out.println("INT -> "+image);}
 	|<FLOAT: "float">{System.out.println("FLOAT -> "+image);}
@@ -75,6 +74,7 @@ TOKEN:
 TOKEN:
 {
 	<IDENT:<LETTER>(<LETTER>|<NUMBER>)*>{System.out.println("IDENT -> "+image);}
+	|<LETTER:["a"-"z","A"-"Z"]> {System.out.println("LETTER ->");}
 }
 
 /********************************************************
@@ -151,13 +151,20 @@ void StatementSequence():{}
 	(Statement())+
 }
 
-//12
+//12.1
 void Statement():{}
 {
-	Assignment()
+	Statement2()
 	|WhileStatement()
 	|IfStatement()
-	|ProcedureCall()
+
+}
+
+//12.2 Mutual Prefix Warning Solving
+void Statement2():{}
+{
+	<IDENT>
+	(Assignment()|ProcedureCall())
 }
 
 //13
@@ -179,7 +186,7 @@ void IfStatement():{}
 //15
 void ProcedureCall():{}
 {
-	<IDENT><LPAREN>(ExpList())*<RPAREN><SEMICOLON>
+	<LPAREN>(ExpList())*<RPAREN><SEMICOLON>
 }
 
 //16
@@ -190,7 +197,7 @@ void ExpList():{}
 //17
 void Assignment():{}
 {
-	Designator()<EQUAL>Logical_OR()<SEMICOLON>
+	<EQUAL>Logical_OR()<SEMICOLON>
 }
 
 //18
@@ -202,7 +209,7 @@ void Logical_OR():{}
 //19
 void Logical_AND():{}
 {
-	Expression()(<AND>Expression()) 
+	Expression()(<AND>Expression())* 
 }
 
 //20
@@ -221,12 +228,7 @@ void EqualityExpr():{}
 void SimpleExpr():{}
 {
 	[<PLUS>|<MINUS>]Term()
-	ExtraTermSimpleExpr()
-}
-
-void ExtraTermSimpleExpr():{}
-{
-	((<PLUS>|<MINUS>)Term())* 
+	((<PLUS>|<MINUS>)Term())*
 }
 
 //23
@@ -238,13 +240,15 @@ void Term():{}
 //24
 void Unary():{}
 {
-	<SEMICOLON>Unary()|Factor()
+	(<NOT>Unary())|Factor()
 }
 
 //25
 void Factor():{}
 {
-	Designator()|<NUMBER>|<LPAREN>Logical_OR()<RPAREN> 
+	<NUMBER>
+	|Designator()
+	|<LPAREN>Logical_OR()<RPAREN> 
 }
 
 //26

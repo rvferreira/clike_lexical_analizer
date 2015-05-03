@@ -1,9 +1,12 @@
-	void main ()
+	void main()
 	{
 	
-	int a = 2;
-	int i = 1;
-	int b = 0;
+	int a;
+	int i;
+	int b;
+	i = 1;
+	a = 2;
+	b = 0;
 		
 	while(i <= a)
 	{
