@@ -2,7 +2,14 @@ void main()
 {
 	int a;
 	a = 3;
-	int b;
+	float b = 1.5;
+	float c = 1.2;
+	float aux;
 	
-	b = a*a;
+	if (a > 0)
+	{
+		aux = b;
+		b = c;
+		c = aux;
+	}
 }
