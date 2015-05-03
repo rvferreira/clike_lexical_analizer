@@ -8,9 +8,9 @@ Este é um analizador lexico para a Linguagem C-like
 
 Trabalho desenvolvido dentro das dependencias da USP Sao Carlos, na disciplina SCC605, Teoria da Computacao e Compiladores, sob orientacao da professora Sandra Aluisio pelos alunos:
 
-Lais Pessine		laispc19@gmail.com
-Roberto Freitas		roberto.martinsdefreitas@gmail.com
-Raphael Ferreira	raphael.rvf@gmail.com
+    Lais Pessine		laispc19@gmail.com 
+    Roberto Freitas		roberto.martinsdefreitas@gmail.com
+    Raphael Ferreira	raphael.rvf@gmail.com
 
 Copyright: Use à vontz! Mas mantenha a autoria =)
 
@@ -21,7 +21,7 @@ Copyright: Use à vontz! Mas mantenha a autoria =)
 2. Compile os arquivos java: `javac *.java`
 
 3. Rode o caso teste desejado: `java LeAnal < caminho/para/arquivoteste`
-⋅⋅1. sendo que alguns arquivos teste sao providenciados na pasta Testes
+    1. sendo que alguns arquivos teste sao providenciados na pasta Testes
 
 ## Arquivos teste
 
