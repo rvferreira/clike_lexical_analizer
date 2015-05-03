@@ -1,0 +1,11 @@
+void main()
+{
+	int a;
+	A = 1;
+	
+	void addToA(b)
+	{
+		A = A+b
+	}
+	
+}
