@@ -21,12 +21,12 @@ Copyright: Use à vontz! Mas mantenha a autoria =)
 2. Compile os arquivos java: `javac *.java`
 
 3. Rode o caso teste desejado: `java LeAnal < caminho/para/arquivoteste`
-    1. sendo que alguns arquivos teste sao providenciados na pasta Testes
+    *. sendo que alguns arquivos teste sao providenciados na pasta Testes. Ex: `java LeAnal < Testes/teste1.txt`
 
 ## Arquivos teste
 
 ### teste1.txt
-Arquivo que compila com sucesso e exemplifica o reconhecimento da maioria dos tokens da linguagem
+Arquivo que compila com sucesso e exemplifica o reconhecimento da maioria dos tokens da linguagem.
 
 ### teste2.txt
 Falha na declaracao de variaveis. Atribuicao junto com declaracao.
