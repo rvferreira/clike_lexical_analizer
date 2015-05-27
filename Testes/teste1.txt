@@ -1,12 +1,12 @@
-	void main()
-	{
-	
+void main()
+{
 	typedef int num;
 	num a;
 	int i;
 	int b;
+	int aux_var;
 	i = 1;
-	a = 2;
+	a = 200;
 	b = 0;
 		
 	while(i <= a)
@@ -22,7 +22,5 @@
 		{
 			i = i*i;
 		}
-	}
-		
-		
-	}
+	}	
+}
