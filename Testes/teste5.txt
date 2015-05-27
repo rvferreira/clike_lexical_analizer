@@ -6,7 +6,7 @@ void main()
 	float c = 1.2;
 	float aux;
 	
-	if (a > 0)
+	if (c < b)
 	{
 		aux = b;
 		b = c;
