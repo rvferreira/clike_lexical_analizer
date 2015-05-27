@@ -95,8 +95,10 @@ void ProcedureDeclaration():{}
 //3
 void ProcedureBody():{}
 {
-	(TypeDefDeclaration()|VariableDeclaration()|StatementSequence())*
+	(TypeDefDeclaration()|LOOKAHEAD(2)VariableDeclaration()|StatementSequence())*
 }
+
+
 
 //4
 void ProcedureHeading():{}
@@ -131,20 +133,19 @@ void VariableDeclaration():{}
 //9
 void IdentList():{}
 {
-	<IDENT>
-	|(<IDENT>)(<COMMA><IDENT>)*
+	<IDENT>(<COMMA><IDENT>)*
 }
 
 //10
 void Type():{}
 {
-	(<IDENT>)
+	<IDENT>
 }
 
 //11
 void StatementSequence():{}
 {
-	(Statement())+
+	(LOOKAHEAD(2)Statement())+
 }
 
 //12
@@ -225,7 +226,7 @@ void EqualityExpr():{}
 void SimpleExpr():{}
 {
 	[<PLUS>|<MINUS>]Term()
-	((<PLUS>|<MINUS>)Term())*
+	(LOOKAHEAD(2)(<PLUS>|<MINUS>)Term())*
 }
 
 //23
