@@ -38,5 +38,12 @@ Declaração de typedef inválida com três argumentos.
 Falta de ponto e vírgula.
 
 ### teste5.txt
+Declaração com atribuição.
+
 ### teste6.txt
+Declaração 'else' não fechada.
+
 ### teste7.txt
+Falta de parâmetros para o 'while' 
+
+
