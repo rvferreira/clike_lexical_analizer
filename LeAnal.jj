@@ -29,7 +29,7 @@ SKIP :
 //TOKENS ESTÁTICOS
 TOKEN:
 {
-	<NUMBER:["0"-"9"]+>{System.out.println("NUMBER -> "+image);}
+	<NUMBER:(["0"-"9"])+>{System.out.println("NUMBER -> "+image);}
 	|<RPAREN: ")">{System.out.println("RPAREN -> " + image);}
     	|<LPAREN: "(">{System.out.println("LPAREN -> " + image);}
 	|<LBRACE: "{">{System.out.println("LBRACE -> " + image);}
