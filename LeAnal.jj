@@ -95,7 +95,7 @@ void ProcedureDeclaration():{}
 //3
 void ProcedureBody():{}
 {
-	(TypeDefDeclaration()|LOOKAHEAD(4)VariableDeclaration()|StatementSequence())*
+	(TypeDefDeclaration()|VariableDeclaration()|StatementSequence())*
 }
 
 //4
@@ -131,7 +131,7 @@ void VariableDeclaration():{}
 //9
 void IdentList():{}
 {
-	LOOKAHEAD(4)<IDENT>
+	<IDENT>
 	|(<IDENT>)(<COMMA><IDENT>)*
 }
 
@@ -144,16 +144,23 @@ void Type():{}
 //11
 void StatementSequence():{}
 {
-	(LOOKAHEAD(2)Statement())+
+	(Statement())+
 }
 
 //12
 void Statement():{}
 {
-	LOOKAHEAD(4)Assignment()
-	|ProcedureCall()
+	Statement2()
 	|WhileStatement()
 	|IfStatement()
+
+}
+
+void Statement2():{}
+{
+	<IDENT>(
+	Assignment()
+	|ProcedureCall())
 
 }
 
@@ -176,7 +183,7 @@ void IfStatement():{}
 //15
 void ProcedureCall():{}
 {
-	Designator()<LPAREN>(ExpList())*<RPAREN><SEMICOLON>
+	<LPAREN>(ExpList())*<RPAREN><SEMICOLON>
 }
 
 //16
@@ -187,7 +194,7 @@ void ExpList():{}
 //17
 void Assignment():{}
 {
-	<IDENT><EQUAL>Logical_OR()<SEMICOLON>
+	<EQUAL>Logical_OR()<SEMICOLON>
 }
 
 //18
@@ -211,14 +218,14 @@ void Expression():{}
 //21
 void EqualityExpr():{}
 {
-	SimpleExpr()[LOOKAHEAD(2)(<LESS> | <LEQ> | <GREATER> | <GEQ>)SimpleExpr()]
+	SimpleExpr()[(<LESS> | <LEQ> | <GREATER> | <GEQ>)SimpleExpr()]
 }
 
 //22
 void SimpleExpr():{}
 {
 	[<PLUS>|<MINUS>]Term()
-	(LOOKAHEAD(4)(<PLUS>|<MINUS>)Term())*
+	((<PLUS>|<MINUS>)Term())*
 }
 
 //23
