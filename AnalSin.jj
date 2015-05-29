@@ -1,10 +1,10 @@
-PARSER_BEGIN(LeAnal)
+PARSER_BEGIN(AnalSin)
 
-public class LeAnal {
+public class AnalSin {
 
 	public static void main(String args []) throws ParseException{
 		try{
-			LeAnal parser = new LeAnal(System.in);
+			AnalSin parser = new AnalSin(System.in);
 			parser.Program();
 		}
 		catch(ParseException e){
@@ -14,7 +14,7 @@ public class LeAnal {
 	}
 }
 
-PARSER_END(LeAnal)
+PARSER_END(AnalSin)
 
 //ESPACOS VAZIOS
 SKIP :

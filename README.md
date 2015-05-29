@@ -16,12 +16,12 @@ Copyright: Use à vontz! Mas mantenha a autoria =)
 
 ## Instrucoes de uso
 
-1. Compile o arquivo usando o javaCC: `javacc LeAnal.jj`
+1. Compile o arquivo usando o javaCC: `javacc AnalSin.jj`
 
 2. Compile os arquivos java: `javac *.java`
 
-3. Rode o caso teste desejado: `java LeAnal < caminho/para/arquivoteste`
-    *. sendo que alguns arquivos teste sao providenciados na pasta Testes. Ex: `java LeAnal < Testes/teste1.txt`
+3. Rode o caso teste desejado: `java AnalSin < caminho/para/arquivoteste`
+    *. sendo que alguns arquivos teste sao providenciados na pasta Testes. Ex: `java AnalSin < Testes/teste1.txt`
 
 ## Arquivos teste
 
@@ -38,7 +38,7 @@ Declaração de typedef inválida com três argumentos.
 Falta de ponto e vírgula.
 
 ### teste5.txt
-Declaração com atribuição.
+Falta um operador para que a expressão seja válida.
 
 ### teste6.txt
 Declaração 'else' não fechada.
