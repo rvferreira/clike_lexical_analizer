@@ -1,15 +1,55 @@
 public class Funcao extends Simbolo
 {
-	private Tipo tipo;
+	private CampoTipo tipo;
 	private int ender;
 	private int npar;
 	
-	public Funcao (Tipo tipo, int npar, int ender)
+	public Funcao (Atributos atrib)
 	{
-		this.tipo = tipo;
-		this.ender = ender;
-		this.npar = npar;
+		super(atrib);
+		this.tipo = atrib.getTipo();
+		this.ender = atrib.getEnder();
+		this.npar = atrib.getNpar();
 	}
 
+        public CampoTipo getTipo() {
+            return tipo;
+        }
 
+        public int getEnder() {
+            return ender;
+        }
+
+        public int getNpar() {
+            return npar;
+        }
+
+        public void setTipo(CampoTipo tipo) {
+            this.tipo = tipo;
+        }
+
+        public void setEnder(int ender) {
+            this.ender = ender;
+        }
+
+        public void setNpar(int npar) {
+            this.npar = npar;
+        }
+
+        @Override
+		public Atributos ObtemAtributos()
+		{
+			Atributos atrib_aux = new Atributos();
+			
+			atrib_aux.setIdent(super.ident);
+			atrib_aux.setNivel(super.nivel);
+			atrib_aux.setCategoria(super.categoria);
+			
+			atrib_aux.setTipo(this.tipo);
+			atrib_aux.setEnder(this.ender);
+			atrib_aux.setNpar(this.npar);
+			
+			return atrib_aux;
+		}
+        
 }

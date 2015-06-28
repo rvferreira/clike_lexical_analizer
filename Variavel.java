@@ -1,13 +1,42 @@
-public class Variavel extends Simbolo
-{
-	private Tipo tipo;
-	private int ender;
-	
-	public Variavel (Tipo tipo, int ender)
+public class Variavel extends Simbolo {
+
+    private CampoTipo tipo;
+    private int ender;
+
+    public Variavel(Atributos atrib) {
+        super(atrib);
+        this.tipo = atrib.getTipo();
+        this.ender = atrib.getEnder();
+    }
+
+    public CampoTipo getTipo() {
+        return tipo;
+    }
+
+    public int getEnder() {
+        return ender;
+    }
+
+    public void setTipo(CampoTipo tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setEnder(int ender) {
+        this.ender = ender;
+    }
+
+	@Override
+	public Atributos ObtemAtributos()
 	{
-		this.tipo = tipo;
-		this.ender = ender;
+		Atributos atrib_aux = new Atributos();
+		
+		atrib_aux.setIdent(super.ident);
+		atrib_aux.setNivel(super.nivel);
+		atrib_aux.setCategoria(super.categoria);
+		
+		atrib_aux.setTipo(this.tipo);
+		atrib_aux.setEnder(this.ender);
+		
+		return atrib_aux;
 	}
-
-
 }

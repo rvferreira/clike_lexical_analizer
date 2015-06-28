@@ -1,29 +1,33 @@
 public class SimboloFactory 
 {
-	public static Simbolo getInstance(Categoria categoria, Tipo tipo, String valor, int nbytes, int ender, int classe_transf, int npar)
+	public static Simbolo getInstance(Atributos atrib)
 	{
-		switch (categoria)
+		
+		//TODO -> TAMANHO
+		switch (atrib.getCategoria())
 		{
 			case CONSTANTE:
-				return new Constante(tipo, valor);
+				return new Constante(Atributos atrib);
 				break;
 			case TIPO:
-				return new Tipo(tipo, nbytes);
+				return new Tipo(Atributos atrib);
 				break;
 			case PARAMETRO:
-				return new Parametro(tipo, ender, classe_transf);
+				return new Parametro(Atributos atrib);
 				break;
 			case VARIAVEL:
-				return new Variavel(tipo, ender);
+				return new Variavel(Atributos atrib);
 				break;
 			case PROCEDIMENTO:
-				return new Procedimento(npar, ender);
+				return new Procedimento(Atributos atrib);
 				break;
 			case FUNCAO:
-				return new Funcao(tipo, npar, ender);
+				return new Funcao(Atributos atrib);
 				break;
 			default:
-				break; //lança exception
+				break;
 		}
 	}
+	
+	
 }

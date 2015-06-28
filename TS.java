@@ -1,67 +1,87 @@
 import java.util.Hashtable;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 /*
 * TAD - Tabela de Simbolos
 */
 public class TS {
 
-	private Hashtable <String, Simbolo> hashtab;
+	private List<Hashtable<String,Simbolo>> hashtab;
 	private Simbolo simbolo;
 	
 	public TS ()
 	{
-		hashtab = new Hashtable <String, Simbolo>();
+		hashtab = new ArrayList<Hashtable<String,Simbolo>>();
+		hashtab.add(new Hashtable<String, Simbolo> ());						//cria nivel 0
 	}
 	
 	
 	public Simbolo Busca(String id)
 	{
-		if(hashtab.containsKey(id))
+		Simbolo simbolo_aux = null;
+		
+		for(int i = hashtab.size() - 1; i >= 0 ; i--)
 		{
-			return hashtab.get(id);
+			simbolo_aux = hashtab.get(i).get(id); 
+		
+			if(simbolo != null)
+				break;
 			
-		}else
-		{	
-			return null;
 		}
 		
+		return simbolo_aux;
 	}
 	
 	public boolean Declarado(String id, int nivel)
 	{
-		/*
-		Simbolo =
-		if(simbolo.getNivel() == nivel)
+		if(hashtab.get(nivel).get(id) == null)
+		{
+			return false;
+		} else 
 		{
 			return true;
 		}
-		else{
-			return false;
-		}
-		*/
-		return true;
+
 	}
 	
 	public boolean Elimina(int nivel)
 	{
-		//Enumeration elems = new Enumeration();
-		//elem = hashtab.elements();
+		try{
+			hashtab.remove(nivel);
+		} catch( Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
 		
 		return true;
 	}
 	
 	public boolean Insere(String id, Simbolo simbolo)
 	{
-		hashtab.put(id, simbolo);
+		try{
+			Hashtable hash_aux = (Hashtable) hashtab.get(hashtab.size()-1);
+			hash_aux.put(id, simbolo);
+			hashtab.set(hashtab.size()-1,hash_aux);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+		
 		return true;
 		
 	}
 	
-	public boolean Atualiza()
+	public void SetaAtributos(Simbolo simbolo, Atributos atrib)
 	{
-		return true;
-	}
 	
+	
+	}
 	
 }
 
