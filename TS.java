@@ -89,6 +89,9 @@ public class TS {
     public void SetaAtributos(Simbolo simbolo, Atributos atrib) {
         simbolo = SimboloFactory.getInstance(atrib);
     }
+	public int getNivel() {
+        return this.nivel;
+    }
 
 }
 
