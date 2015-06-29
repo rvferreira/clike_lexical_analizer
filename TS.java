@@ -84,12 +84,10 @@ public class TS {
 
         return true;
 
-
     }
 
     public void SetaAtributos(Simbolo simbolo, Atributos atrib) {
-
-
+        simbolo = SimboloFactory.getInstance(atrib);
     }
 
 }

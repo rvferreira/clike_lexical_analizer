@@ -5,7 +5,7 @@ public class Teste
 	public static void main(String[] args)
 	{
 		TS tabela = new TS();
-		
+
 		Atributos atributos = new Atributos ("int",0,Categoria.TIPO,CampoTipo.INT,"0",4,0,0,0,0);
 		Simbolo simbolo = SimboloFactory.getInstance(atributos);
 		tabela.Insere(simbolo);
