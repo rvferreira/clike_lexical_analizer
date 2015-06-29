@@ -91,6 +91,9 @@ public class TS {
 
 
     }
+	public int getNivel() {
+        return this.nivel;
+    }
 
 }
 
