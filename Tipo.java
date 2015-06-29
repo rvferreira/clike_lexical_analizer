@@ -1,7 +1,7 @@
 
 public class Tipo extends Simbolo {
 
-    private CampoTipo tipo;
+    private int tipo;
     private int nbytes;
 
     public Tipo(Atributos atrib) {
@@ -10,7 +10,7 @@ public class Tipo extends Simbolo {
         this.tipo = atrib.getTipo();
     }
 
-    public CampoTipo getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
@@ -18,7 +18,7 @@ public class Tipo extends Simbolo {
         return nbytes;
     }
 
-    public void setTipo(CampoTipo tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 

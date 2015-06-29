@@ -1,17 +1,9 @@
-enum Categoria {
-	CONSTANTE, TIPO, PROCEDIMENTO, FUNCAO, PARAMETRO, VARIAVEL
-}
-
-enum CampoTipo {
-	INT, FLOAT, CHAR
-}
-
 public abstract class Simbolo {
 				
 
 	protected String ident;
 	protected int nivel;
-	protected Categoria categoria;
+	protected int categoria;
 	
 	
 	public Simbolo (Atributos atrib)
@@ -29,7 +21,7 @@ public abstract class Simbolo {
 		return nivel;
 	}
 	
-	public Categoria getCategoria(){
+	public int getCategoria(){
 		return categoria;
 	}
 
@@ -41,7 +33,7 @@ public abstract class Simbolo {
 		this.nivel = nivel;
 	}
 
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(int categoria) {
 		this.categoria = categoria;
 	}
 	

@@ -1,6 +1,6 @@
 public class Funcao extends Simbolo
 {
-	private CampoTipo tipo;
+	private int tipo;
 	private int ender;
 	private int npar;
 	
@@ -12,7 +12,7 @@ public class Funcao extends Simbolo
 		this.npar = atrib.getNpar();
 	}
 
-        public CampoTipo getTipo() {
+        public int getTipo() {
             return tipo;
         }
 
@@ -24,7 +24,7 @@ public class Funcao extends Simbolo
             return npar;
         }
 
-        public void setTipo(CampoTipo tipo) {
+        public void setTipo(int tipo) {
             this.tipo = tipo;
         }
 

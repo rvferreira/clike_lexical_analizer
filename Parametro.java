@@ -1,6 +1,6 @@
 public class Parametro extends Simbolo {
 
-    private CampoTipo tipo;
+    private int tipo;
     private int ender;
     private int classe_transf;
 
@@ -11,7 +11,7 @@ public class Parametro extends Simbolo {
         this.classe_transf = atrib.getClasse_transf();
     }
 
-    public CampoTipo getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
@@ -34,7 +34,7 @@ public class Parametro extends Simbolo {
 		
 		atrib_aux.setTipo(this.tipo);
 		atrib_aux.setEnder(this.ender);
-		atrib_aux.setClasse_tranf(this.classe_transf);
+		atrib_aux.setClasse_transf(this.classe_transf);
 		
 		return atrib_aux;
 	}

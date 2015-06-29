@@ -1,6 +1,6 @@
 public class Variavel extends Simbolo {
 
-    private CampoTipo tipo;
+    private int tipo;
     private int ender;
 
     public Variavel(Atributos atrib) {
@@ -9,7 +9,7 @@ public class Variavel extends Simbolo {
         this.ender = atrib.getEnder();
     }
 
-    public CampoTipo getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
@@ -17,7 +17,7 @@ public class Variavel extends Simbolo {
         return ender;
     }
 
-    public void setTipo(CampoTipo tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 

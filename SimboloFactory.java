@@ -2,31 +2,37 @@ public class SimboloFactory
 {
 	public static Simbolo getInstance(Atributos atrib)
 	{
-		
-		//TODO -> TAMANHO
-		switch (atrib.getCategoria())
+
+		if(atrib.getCategoria() == Categoria.TIPO)
 		{
-			case CONSTANTE:
-				return new Constante(Atributos atrib);
-				break;
-			case TIPO:
-				return new Tipo(Atributos atrib);
-				break;
-			case PARAMETRO:
-				return new Parametro(Atributos atrib);
-				break;
-			case VARIAVEL:
-				return new Variavel(Atributos atrib);
-				break;
-			case PROCEDIMENTO:
-				return new Procedimento(Atributos atrib);
-				break;
-			case FUNCAO:
-				return new Funcao(Atributos atrib);
-				break;
-			default:
-				break;
+			return new Tipo(atrib);
 		}
+		else if (atrib.getCategoria() == Categoria.CONSTANTE)
+		{
+			return new Constante(atrib);
+		}
+		else if (atrib.getCategoria() == Categoria.PARAMETRO)
+		{
+			return new Parametro(atrib);
+		}
+		else if (atrib.getCategoria() == Categoria.VARIAVEL)
+		{
+			return new Variavel(atrib);
+		}
+		else if (atrib.getCategoria() == Categoria.PROCEDIMENTO)
+		{
+			return new Procedimento(atrib);
+		}
+		else if (atrib.getCategoria() == Categoria.FUNCAO)
+		{
+			return new Funcao(atrib);
+		}
+		else
+		{
+				System.out.println("ERRO - Categoria não encontrada!");
+				return null;
+		}
+
 	}
 	
 	

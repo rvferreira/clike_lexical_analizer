@@ -11,23 +11,26 @@ public class TS {
 
 	private List<Hashtable<String,Simbolo>> hashtab;
 	private Simbolo simbolo;
-	
+	public static int nivel;
+
+
+
 	public TS ()
 	{
 		hashtab = new ArrayList<Hashtable<String,Simbolo>>();
 		hashtab.add(new Hashtable<String, Simbolo> ());						//cria nivel 0
+		this.nivel = 0;
 	}
 	
 	
 	public Simbolo Busca(String id)
 	{
 		Simbolo simbolo_aux = null;
-		
 		for(int i = hashtab.size() - 1; i >= 0 ; i--)
 		{
-			simbolo_aux = hashtab.get(i).get(id); 
+			simbolo_aux = (hashtab.get(i)).get(id); 
 		
-			if(simbolo != null)
+			if(simbolo_aux != null)
 				break;
 			
 		}
@@ -37,20 +40,26 @@ public class TS {
 	
 	public boolean Declarado(String id, int nivel)
 	{
-		if(hashtab.get(nivel).get(id) == null)
+		try{
+			if(hashtab.get(nivel).get(id) == null)
+			{
+				return false;
+			} else 
+			{
+				return true;
+			}
+		} catch(Exception e)
 		{
 			return false;
-		} else 
-		{
-			return true;
 		}
-
 	}
 	
 	public boolean Elimina(int nivel)
 	{
 		try{
+			hashtab.get(nivel).clear();
 			hashtab.remove(nivel);
+			this.nivel --;
 		} catch( Exception e)
 		{
 			e.printStackTrace();
@@ -60,12 +69,29 @@ public class TS {
 		return true;
 	}
 	
-	public boolean Insere(String id, Simbolo simbolo)
+	public boolean Insere(Simbolo simbolo)
 	{
+
+		if(simbolo.getNivel() > this.nivel)
+		{
+			for(int i = 0; i < simbolo.getNivel() - this.nivel; i++)
+				hashtab.add(new Hashtable<String, Simbolo> ());	
+
+			this.nivel = this.nivel + (simbolo.getNivel() - this.nivel);
+
+		}else if(simbolo.getNivel() < this.nivel)
+		{
+
+			for(int i = 0; i < (this.nivel - simbolo.getNivel()); i++)
+			{
+					Elimina(nivel);
+			}
+		}
+		
 		try{
-			Hashtable hash_aux = (Hashtable) hashtab.get(hashtab.size()-1);
-			hash_aux.put(id, simbolo);
-			hashtab.set(hashtab.size()-1,hash_aux);
+			Hashtable hash_aux = (Hashtable) hashtab.get(simbolo.getNivel());
+			hash_aux.put(simbolo.getIdent(), simbolo);
+			hashtab.set(simbolo.getNivel(),hash_aux);
 		}
 		catch(Exception e)
 		{
@@ -74,6 +100,7 @@ public class TS {
 		}
 		
 		return true;
+		
 		
 	}
 	

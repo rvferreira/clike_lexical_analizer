@@ -1,6 +1,6 @@
 public class Constante extends Simbolo
 {
-	private CampoTipo tipo;
+	private int tipo;
 	private String valor;
 	
 	public Constante (Atributos atrib)
@@ -10,7 +10,7 @@ public class Constante extends Simbolo
 		this.valor = atrib.getValor();
 	}
 	
-	public CampoTipo getTipo() {
+	public int getTipo() {
         return tipo;
     }
 
@@ -18,7 +18,7 @@ public class Constante extends Simbolo
         return valor;
     }
 
-    public void setTipo(CampoTipo tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 

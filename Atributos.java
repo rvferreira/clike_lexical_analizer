@@ -2,8 +2,8 @@ public class Atributos
 {
 	private String ident;
 	private int nivel;
-	private Categoria categoria;
-	private CampoTipo tipo;
+	private int categoria;
+	private int tipo;
 	private String valor;
 	private int nbytes;
 	private int ender;
@@ -15,8 +15,8 @@ public class Atributos
 	{
 		this.ident = null;
 		this.nivel = -1;
-		this.categoria = null;		
-		this.tipo = null;
+		this.categoria = -1;		
+		this.tipo = -1;
 		this.valor = null;
 		this.nbytes = -1;
 		this.ender = -1;
@@ -25,7 +25,7 @@ public class Atributos
 		this.tamanho = -1;
 	}
 	
-	public Atributos(String ident, int nivel, Categoria categoria, CampoTipo tipo, String valor, int nbytes, int ender, int classe_transf, int npar, int tamanho)
+	public Atributos(String ident, int nivel, int categoria, int tipo, String valor, int nbytes, int ender, int classe_transf, int npar, int tamanho)
 	{
 		this.ident = ident;
 		this.nivel = nivel;
@@ -48,11 +48,11 @@ public class Atributos
 		return nivel;
 	}
 	
-    public Categoria getCategoria() {
+    public int getCategoria() {
         return categoria;
     }
 
-    public CampoTipo getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
@@ -80,11 +80,11 @@ public class Atributos
         return tamanho;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(int categoria) {
         this.categoria = categoria;
     }
 
-    public void setTipo(CampoTipo tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 
