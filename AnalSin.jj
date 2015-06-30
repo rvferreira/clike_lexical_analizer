@@ -160,7 +160,7 @@ void Statement():{}
 
 void Statement2():{}
 {
-	<IDENT>{System.out.println("!!!!!!!!!!!!"+getToken(0).image);Rotinas.regra21(getToken(0).image);}(
+	<IDENT>{Rotinas.regra21(getToken(0).image);}(
 	Assignment()
 	|ProcedureCall())
 

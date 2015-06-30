@@ -2,6 +2,15 @@ int a;
 int b;
 int c;
 
+void function(int p0, int p1)
+{
+	typedef int an_integer;
+	an_integer b;
+	b = 5;
+	c = p0 + p1;
+	c =  c*5;
+}
+
 void main()
 {
 	int x;
@@ -26,13 +35,4 @@ void main()
 			i = i+1;
 		}
 	}
-}
-
-void function(int p0, int p1)
-{
-	typedef an_integer b;
-	an_integer b;
-	b = 5;
-	c = p0 + p1;
-	c =  c*5;
 }

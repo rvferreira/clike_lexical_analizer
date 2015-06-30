@@ -11,7 +11,7 @@ public class Rotinas
 	public static Simbolo pos;
 	public static int classet;
 	public static String typedefType;
-	private static boolean verbose = true;
+	private static boolean verbose = false;	//Turn on some prints for an awesome debbuging
 	
 	private static int verificaTipo(String tipo){
 		switch(tipo){
@@ -115,7 +115,7 @@ public class Rotinas
 	
 	public static void regra22l (){
 		if (verbose) System.out.println("regra22l");
-		if ((c_id != Categoria.VARIAVEL)||(c_id != Categoria.PARAMETRO)){
+		if ((c_id != Categoria.VARIAVEL)&&(c_id != Categoria.PARAMETRO)){
 			System.out.println("Erro: Variavel ou Parametro não definidos.");
 		}
 	}
