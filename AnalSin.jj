@@ -81,6 +81,7 @@ TOKEN:
 //1
 void Program():{}
 {
+	{Rotinas.regra0();}
 	(VariableDeclaration()|TypeDefDeclaration())*
 	(ProcedureDeclaration())+
 	<EOF>
@@ -89,7 +90,7 @@ void Program():{}
 //2
 void ProcedureDeclaration():{}
 {	
-	<VOID>(ProcedureHeading())<LBRACE>(ProcedureBody())<RBRACE>
+	<VOID>(ProcedureHeading())<LBRACE>(ProcedureBody())<RBRACE>{Rotinas.regra8(getToken(0).image);}
 }
 
 //3
@@ -103,7 +104,7 @@ void ProcedureBody():{}
 //4
 void ProcedureHeading():{}
 {
-	<IDENT><LPAREN>[FormalParameters()]<RPAREN>
+	<IDENT>{Rotinas.regra5(getToken(0).image);Rotinas.regra13(getToken(0).image);}<LPAREN>[FormalParameters()]{Rotinas.regra20();}<RPAREN>
 }
 
 //5
@@ -116,30 +117,30 @@ void FormalParameters():{}
 //6
 void FPSection():{}
 {
-	(Type())<IDENT>
+	(Type()){Rotinas.varType = getToken(0).image; Rotinas.regra14(0);}<IDENT>{Rotinas.regra18(getToken(0).image);Rotinas.regra26(getToken(0).image);}
 }
 //7
 void TypeDefDeclaration():{}
 {
-	<TYPEDEF>(Type())<IDENT><SEMICOLON>
+	<TYPEDEF>(Type()){Rotinas.typedefType = getToken(0).image; Rotinas.regra9(Rotinas.typedefType);}<IDENT>{Rotinas.regra27(getToken(0).image);}<SEMICOLON>
 }
 
 //8
 void VariableDeclaration():{}
 {
-	(Type())(IdentList())<SEMICOLON>
+	(Type()){Rotinas.varType = getToken(0).image;}(IdentList())<SEMICOLON>
 }
 
 //9
 void IdentList():{}
 {
-	<IDENT>(<COMMA><IDENT>)*
+	<IDENT>{Rotinas.regra3(getToken(0).image);}(<COMMA><IDENT>{Rotinas.regra3(getToken(0).image);})*
 }
 
 //10
 void Type():{}
 {
-	<IDENT>
+	<IDENT> {Rotinas.regra9(getToken(0).image);}
 }
 
 //11
@@ -159,7 +160,7 @@ void Statement():{}
 
 void Statement2():{}
 {
-	<IDENT>(
+	<IDENT>{Rotinas.regra21(getToken(0).image);}(
 	Assignment()
 	|ProcedureCall())
 
@@ -184,18 +185,18 @@ void IfStatement():{}
 //15
 void ProcedureCall():{}
 {
-	<LPAREN>(ExpList())*<RPAREN><SEMICOLON>
+	<LPAREN>{Rotinas.regra25();}(ExpList())*{Rotinas.regra24();}<RPAREN><SEMICOLON>
 }
 
 //16
 void ExpList():{}
 {
-	Logical_OR()(<COMMA>Logical_OR())*
+	Logical_OR(){Rotinas.regra23();}(<COMMA>Logical_OR(){Rotinas.regra23();})*
 }
 //17
 void Assignment():{}
 {
-	<EQUAL>Logical_OR()<SEMICOLON>
+	<EQUAL>{Rotinas.regra25l();}Logical_OR()<SEMICOLON>
 }
 
 //18
@@ -244,15 +245,15 @@ void Unary():{}
 //25
 void Factor():{}
 {
-	<NUMBER>
-	|Designator()
+	Designator()
 	|<LPAREN>Logical_OR()<RPAREN> 
+	|(<NUMBER>{Rotinas.regra26(getToken(0).image);})
 }
 
 //26
 void Designator():{}
 {
-	<IDENT>
+	<IDENT>{Rotinas.regra21(getToken(0).image);Rotinas.regra22l();}
 }
 
 

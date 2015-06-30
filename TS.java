@@ -44,7 +44,7 @@ public class TS {
         }
     }
 
-    public boolean Elimina(int nivel) {
+    public boolean Elimina() {
         try {
             hashtab.get(this.nivel).clear();
             hashtab.remove(nivel);
@@ -69,7 +69,7 @@ public class TS {
 
             int aux = this.nivel;
             for (int i = 0; i < (aux - simbolo.getNivel()); i++) {
-                Elimina(nivel);
+                Elimina();
             }
         }
 
@@ -91,8 +91,11 @@ public class TS {
     }
 
 	public int getNivel() {
-        return this.nivel;
-    }
-
+        	return this.nivel;
+    	}
+	
+	public void setNivel(int nivel) {
+        	this.nivel = nivel;
+    	}
 }
 
