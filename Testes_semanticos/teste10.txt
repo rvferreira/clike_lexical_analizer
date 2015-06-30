@@ -1,17 +1,17 @@
 int a, b;
 
-void main()
-{
-	a = 30;
-	number n;
-	n = 10;
-	n = n + a;
-}
-
 void function()
 {
 	typedef number int;
 	number r;
 	r = a;
 	a = a + 2;
+}
+
+void main()
+{
+	a = 30;
+	number n;
+	n = 10;
+	n = n + a;
 }

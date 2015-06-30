@@ -1,5 +1,11 @@
 int a, b, c;
 
+void function(int p0, int r1)
+{
+	a = a + p0;
+	b = r1 * a;
+}
+
 void main()
 {
 	int x;
@@ -15,10 +21,4 @@ void main()
 	{
 		function(3);
 	}
-}
-
-void function(int p0, int r1)
-{
-	a = a + p0;
-	b = r1 * a;
 }

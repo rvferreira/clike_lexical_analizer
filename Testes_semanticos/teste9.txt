@@ -1,14 +1,14 @@
 int a, b;
 
+void function(int p0)
+{
+	a = a + p0;
+}
+
 void main()
 {
 	typedef tipo_z t_z;
 	t_z z;
 
 	z = 10;
-}
-
-void function(int p0)
-{
-	a = a + p0;
 }
