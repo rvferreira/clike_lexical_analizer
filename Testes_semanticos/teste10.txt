@@ -2,7 +2,7 @@ int a, b;
 
 void function()
 {
-	typedef number int;
+	typedef int number;
 	number r;
 	r = a;
 	a = a + 2;
