@@ -1,0 +1,38 @@
+int a;
+int b;
+int c;
+
+void main()
+{
+	int x;
+	int q, t;
+	typedef int number;
+	number i;
+	i = 1;
+	x = 10;
+	a = 2;
+	b = 3;
+	x = a * x;
+
+	if (x < 50 && a==2)
+	{
+		q = 3;
+		t = 4;
+		function(q,t);
+		i = 0;
+		while(i<3)
+		{
+			c = c*i;
+			i = i+1;
+		}
+	}
+}
+
+void function(int p0, int p1)
+{
+	typedef an_integer b;
+	an_integer b;
+	b = 5;
+	c = p0 + p1;
+	c =  c*5;
+}

@@ -1,0 +1,15 @@
+int a;
+void main()
+{
+	int x;
+	int y;
+	tipo_z z;
+	x = 10;
+	y = 20;
+}
+
+void function(int p0, int p1)
+{
+	int s;
+	s = p0 + p1;
+}

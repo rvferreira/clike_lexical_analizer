@@ -1,0 +1,24 @@
+int a, b, c;
+
+void main()
+{
+	int x;
+	int y;
+	a= 0;
+	b = 0;
+	x = 10;
+	y = 20;
+
+	if (i==1)
+	{
+		function(2);
+	}
+}
+
+void function(int p0)
+{
+	int i;
+	i = 2;
+	a = a + p0;
+	b = i*a;
+}
