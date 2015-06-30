@@ -44,7 +44,7 @@ public class TS {
         }
     }
 
-    public boolean Elimina(int nivel) {
+    public boolean Elimina() {
         try {
             hashtab.get(this.nivel).clear();
             hashtab.remove(nivel);
@@ -58,9 +58,8 @@ public class TS {
     }
 
     public boolean Insere(Simbolo simbolo) {
-
-        if (simbolo.getNivel() > this.nivel) {
-            for (int i = 0; i < simbolo.getNivel() - this.nivel; i++)
+        if ((simbolo.getNivel() >= this.nivel)&&(this.nivel!=0)) {
+            for (int i = 0; i <= simbolo.getNivel() - this.nivel; i++)
                 hashtab.add(new Hashtable<String, Simbolo>());
 
             this.nivel = simbolo.getNivel();
@@ -69,7 +68,7 @@ public class TS {
 
             int aux = this.nivel;
             for (int i = 0; i < (aux - simbolo.getNivel()); i++) {
-                Elimina(nivel);
+                Elimina();
             }
         }
 
@@ -91,8 +90,11 @@ public class TS {
     }
 
 	public int getNivel() {
-        return this.nivel;
-    }
-
+        	return this.nivel;
+    	}
+	
+	public void setNivel(int nivel) {
+        	this.nivel = nivel;
+    	}
 }
 
