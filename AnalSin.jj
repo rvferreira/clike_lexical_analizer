@@ -117,7 +117,7 @@ void FormalParameters():{}
 //6
 void FPSection():{}
 {
-	(Type()){Rotinas.varType = getToken(0).image; Rotinas.regra14(0);}<IDENT>{Rotinas.regra18(getToken(0).image);Rotinas.regra26(getToken(0).image);}
+	(Type()){Rotinas.varType = getToken(0).image; Rotinas.regra14(0);}<IDENT>{Rotinas.regra18(getToken(0).image);}
 }
 //7
 void TypeDefDeclaration():{}
@@ -140,7 +140,7 @@ void IdentList():{}
 //10
 void Type():{}
 {
-	<IDENT> {Rotinas.regra9(getToken(0).image);}
+	<IDENT> {Rotinas.typedefType = getToken(0).image;Rotinas.regra9(Rotinas.typedefType);}
 }
 
 //11
@@ -160,7 +160,7 @@ void Statement():{}
 
 void Statement2():{}
 {
-	<IDENT>{Rotinas.regra21(getToken(0).image);}(
+	<IDENT>{System.out.println("!!!!!!!!!!!!"+getToken(0).image);Rotinas.regra21(getToken(0).image);}(
 	Assignment()
 	|ProcedureCall())
 
@@ -196,7 +196,7 @@ void ExpList():{}
 //17
 void Assignment():{}
 {
-	<EQUAL>{Rotinas.regra25l();}Logical_OR()<SEMICOLON>
+	<EQUAL>{/*Rotinas.regra25l();*/}Logical_OR()<SEMICOLON>
 }
 
 //18

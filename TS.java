@@ -58,9 +58,8 @@ public class TS {
     }
 
     public boolean Insere(Simbolo simbolo) {
-
-        if (simbolo.getNivel() > this.nivel) {
-            for (int i = 0; i < simbolo.getNivel() - this.nivel; i++)
+        if ((simbolo.getNivel() >= this.nivel)&&(this.nivel!=0)) {
+            for (int i = 0; i <= simbolo.getNivel() - this.nivel; i++)
                 hashtab.add(new Hashtable<String, Simbolo>());
 
             this.nivel = simbolo.getNivel();

@@ -11,6 +11,7 @@ public class Rotinas
 	public static Simbolo pos;
 	public static int classet;
 	public static String typedefType;
+	private static boolean verbose = true;
 	
 	private static int verificaTipo(String tipo){
 		switch(tipo){
@@ -26,26 +27,30 @@ public class Rotinas
 
 	public Rotinas()
 	{
-		pos = null;
-		npar = 0;
-		tabela = new TS();
 	}
 	
 	public static void regra0 (){
+		if (verbose) System.out.println("regra0");
+		pos = null;
+		npar = 0;
+		tabela = new TS();
 		tabela.Insere(SimboloFactory.getInstance(new Atributos("int", tabela.getNivel(), Categoria.TIPO, -1, null, 4, -1, -1, -1, -1)));
 		tabela.Insere(SimboloFactory.getInstance(new Atributos("char", tabela.getNivel(), Categoria.TIPO, -1, null, 1, -1, -1, -1, -1)));
 		tabela.Insere(SimboloFactory.getInstance(new Atributos("void", tabela.getNivel(), Categoria.TIPO, -1, null, 0, -1, -1, -1, -1)));
 	}
 
 	public static void regra3 (String id){
+		if (verbose) System.out.println("regra3");
 		if (tabela.Declarado(id, tabela.getNivel())){
 			System.out.println("Erro: id " + id + " já declarado.");
 		}
-		Atributos atrib = new Atributos(id, tabela.getNivel(), Categoria.VARIAVEL, verificaTipo(varType), null, -1, -1, -1, -1, -1);
-		tabela.Insere(SimboloFactory.getInstance(atrib));
+		Atributos atrib = new Atributos(id, tabela.getNivel(), Categoria.VARIAVEL, verificaTipo(varType), "", -1, -1, -1, -1, -1);
+		Simbolo s = SimboloFactory.getInstance(atrib);
+		tabela.Insere(s);
 	}
 
 	public static void regra5 (String id){
+		if (verbose) System.out.println("regra5");
 		if (tabela.Declarado(id, tabela.getNivel())){
 			System.out.println("Erro: id " + id + " já declarado.");
 		}
@@ -55,27 +60,32 @@ public class Rotinas
 	}
 
 	public static void regra8 (String id){
+		if (verbose) System.out.println("regra8");
 		tabela.Elimina();
 	}
 
 	public static void regra9 (String id){
+		if (verbose) System.out.println("regra9");
 		Simbolo s = tabela.Busca(id);
 		if ((s == null)||(s.getCategoria() != Categoria.TIPO)){
 			System.out.println("Erro: Tipo nao definido.");
 		}
 		
-		((Variavel) s).getTipo();
+		endType = verificaTipo(typedefType);
 	}
 
 	public static void regra13 (String procID){
+		if (verbose) System.out.println("regra13");
 		pos = tabela.Busca(procID);
 	}
 	
 	public static void regra14 (int valor){
+		if (verbose) System.out.println("regra14");
 		classet = valor;
 	}
 	
 	public static void regra18 (String id){
+		if (verbose) System.out.println("regra18");
 		if (tabela.Declarado(id, tabela.getNivel())){
 			System.out.println("Erro: id " + id + " já declarado.");
 		}
@@ -85,15 +95,17 @@ public class Rotinas
 	}
 
 	public static void regra20 (){
+		if (verbose) System.out.println("regra20");
 		if (pos!=null) ((Procedimento) pos).setNpar(npar);
 		npar = 0;		
 		
 	}
 
 	public static void regra21 (String id){
+		if (verbose) System.out.println("regra21");
 		Simbolo s = tabela.Busca(id);
-		if (s==null){
-			System.out.println("Erro: id " + id + " já declarado.");
+		if (s == null){
+			System.out.println("Erro: id " + id + " nao declarado.");
 		}
 		
 		c_id = s.getCategoria();
@@ -102,17 +114,20 @@ public class Rotinas
 	}
 	
 	public static void regra22l (){
+		if (verbose) System.out.println("regra22l");
 		if ((c_id != Categoria.VARIAVEL)||(c_id != Categoria.PARAMETRO)){
 			System.out.println("Erro: Variavel ou Parametro não definidos.");
 		}
 	}
 
 	public static void regra23 (){
+		if (verbose) System.out.println("regra23");
 		npar = npar + 1;
 		
 	}
 
 	public static void regra24 (){
+		if (verbose) System.out.println("regra24");
 		if (p_id.getCategoria() == Categoria.PROCEDIMENTO){
 			if (((Procedimento) p_id).getNpar() != npar) {
 				System.out.println("Erro: Incompatibilidade no numero de parametros.");
@@ -122,6 +137,7 @@ public class Rotinas
 	}
 
 	public static void regra25 (){
+		if (verbose) System.out.println("regra25");
 		if (c_id != Categoria.PROCEDIMENTO){
 			System.out.println("Erro: Procedimento nao definido.");
 		}
@@ -129,17 +145,20 @@ public class Rotinas
 	}
 	
 	public static void regra25l (){
+		if (verbose) System.out.println("regra25");
 		if ((c_id != Categoria.VARIAVEL)||(c_id != Categoria.PARAMETRO)){
 			System.out.println("Erro: Variavel ou Parametro nao definido.");
 		}
 	}
 
-	public static void regra26 (String id){
-		int t = Integer.parseInt(id);
+	public static void regra26 (String number){
+		if (verbose) System.out.println("regra26");
+		int t = Integer.parseInt(number);
 		if ((t<-2147483648)||(t>2147483647)) System.out.println("Erro: Overflow de integer.");
 	}
 	
 	public static void regra27 (String id){
+		if (verbose) System.out.println("regra27");
 		if (tabela.Declarado(id, tabela.getNivel())){
 			System.out.println("Erro: id " + id + " já declarado.");
 		}
